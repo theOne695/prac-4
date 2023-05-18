@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +26,31 @@ namespace WpfApp7
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void addType_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void add_click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void update_click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void delete_click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void data_changed(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

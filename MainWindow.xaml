@@ -7,6 +7,39 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
+        <DatePicker Name="data" Grid.ColumnSpan="3" SelectedDateChanged="data_changed"/>
+        <DataGrid x:Name="DataGrid" Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" AutoGenerateColumns="False" SelectedItem="{Binding SelectedBudgetEntry}"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+            <Label Content="Имя записи:" HorizontalAlignment="Center"/>
+            <TextBox Name="naimenovanie" Text="{Binding SelectedBudgetEntry.Name}"/>
+            <Label Content="Тип записи:" HorizontalAlignment="Center"/>
+            <ComboBox Name="description_object" SelectedItem="{Binding SelectedBudgetEntry.Type}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button x:Name="addType" Click="addType_Click" Content="Добавить тип записи"/>
+            <Label Content="Сумма денег:" HorizontalAlignment="Center"/>
+            <TextBox x:Name="summa" Text="{Binding SelectedBudgetEntry.Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+        <Button x:Name="add" Click="add_click" Grid.Row="2" Grid.Column="1" Content="Добавить запись"/>
+        <Button x:Name="update" Click="update_click" Grid.Row="3" Grid.Column="1" Content="Изменить выбранную запись"/>
+        <Button x:Name="delete" Click="delete_click" Grid.Row="4" Grid.Column="1" Content="Удалить запись"/>
+        <Label x:Name="totalLabel" Content="Итого:" Grid.Row="4" Grid.Column="0"/>
+        <Label x:Name="totalAmountLabel" Content="{Binding TotalAmount}" Grid.Row="2" Grid.Column="1"/>
     </Grid>
 </Window>
