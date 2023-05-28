@@ -5,41 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp7"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
-        <DatePicker Name="data" Grid.ColumnSpan="3" SelectedDateChanged="data_changed"/>
-        <DataGrid x:Name="DataGrid" Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" AutoGenerateColumns="False" SelectedItem="{Binding SelectedBudgetEntry}"/>
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-            <Label Content="Имя записи:" HorizontalAlignment="Center"/>
-            <TextBox Name="naimenovanie" Text="{Binding SelectedBudgetEntry.Name}"/>
-            <Label Content="Тип записи:" HorizontalAlignment="Center"/>
-            <ComboBox Name="description_object" SelectedItem="{Binding SelectedBudgetEntry.Type}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Name}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-            <Button x:Name="addType" Click="addType_Click" Content="Добавить тип записи"/>
-            <Label Content="Сумма денег:" HorizontalAlignment="Center"/>
-            <TextBox x:Name="summa" Text="{Binding SelectedBudgetEntry.Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        </StackPanel>
-        <Button x:Name="add" Click="add_click" Grid.Row="2" Grid.Column="1" Content="Добавить запись"/>
-        <Button x:Name="update" Click="update_click" Grid.Row="3" Grid.Column="1" Content="Изменить выбранную запись"/>
-        <Button x:Name="delete" Click="delete_click" Grid.Row="4" Grid.Column="1" Content="Удалить запись"/>
-        <Label x:Name="totalLabel" Content="Итого:" Grid.Row="4" Grid.Column="0"/>
-        <Label x:Name="totalAmountLabel" Content="{Binding TotalAmount}" Grid.Row="2" Grid.Column="1"/>
+        <DataGrid x:Name="DataGrid" Grid.Column="0" Grid.RowSpan="8" Grid.Row="1" Grid.ColumnSpan="3" SelectionChanged="DataGrid_SelectionChanged"/>
+        <DatePicker x:Name="DatePicker" Grid.ColumnSpan="6" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+        <TextBox x:Name="TextBox1" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="2" Margin="26,10,25,10"/>
+        <Label Content="Сумма:" Grid.Row="6" HorizontalAlignment="Center" Grid.Column="4" VerticalAlignment="Center"/>
+        <TextBox x:Name="TextBox2" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="7" Margin="26,10,25,10"/>
+        <Label Content="Имя записи" Grid.ColumnSpan="3" Grid.Column="3" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Content="Добавить запись" Grid.Row="9" Grid.Column="3" Click="addButton_Click"/>
+        <Button Content="Изменить запись" Grid.Row="9" Grid.Column="4" Click="updateButton_click"/>
+        <Button Content="Удалить запись" Grid.Row="9" Grid.Column="5" Click="DeleteButton_Click"/>
+        <Label Content="Тип записи" Grid.Row="3" HorizontalAlignment="Center" Grid.Column="4" VerticalAlignment="Center"/>
+        <ComboBox x:Name="combobox" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="4" Margin="26,10,25,10"/>
+        <TextBlock x:Name="txtBlock" Grid.Row="9" Grid.ColumnSpan="2" Grid.Column="0" VerticalAlignment="Center"><Run Language="ru-ru" Text="Итог"/><Run Text=":"/></TextBlock>
+        <Button Content="Добавить новый тип записи" Grid.Row="5" Grid.ColumnSpan="3" Grid.Column="3" Click="Button_Click" Margin="26,10,25,10"/>
     </Grid>
 </Window>
