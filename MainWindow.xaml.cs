@@ -134,7 +134,7 @@ namespace WpfApp7
 
         private void LoadData()
         {
-            budgetEntries = konvert.Deserialization<List<BudgetEntry>>("учет.json");
+            budgetEntries = konvert.Deserialization<List<BudgetEntry>>("pract4.json");
         }
 
         private void UpdateDataGrid()
@@ -146,7 +146,7 @@ namespace WpfApp7
 
         private void LoadTL()
         {
-            Typeeee = konvert.Deserialization<List<string>>("типзаписи.json");
+            Typeeee = konvert.Deserialization<List<string>>("TypeName.json");
             combobox.ItemsSource = Typeeee;
         }
 
@@ -174,7 +174,7 @@ namespace WpfApp7
 
         private void SaveData()
         {
-            konvert.Serialization(budgetEntries, "учет.json");
+            konvert.Serialization(budgetEntries, "pract4.json");
         }
     }
 }
